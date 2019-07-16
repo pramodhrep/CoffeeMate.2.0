@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import ie.cm.R;
+import ie.cm.fragments.CoffeeFragment;
 import ie.cm.models.Coffee;
 
 public class Home extends Base {
@@ -25,7 +26,7 @@ public class Home extends Base {
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.drawable.ic_launcher1);
 
-        recentList = (TextView) findViewById(R.id.recentlyAddedListEmpty);
+//        recentList = (TextView) findViewById(R.id.recentlyAddedListEmpty);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +41,6 @@ public class Home extends Base {
                         }).show();
             }
         });
-
     }
 
     public void add(View v)
@@ -52,15 +52,14 @@ public class Home extends Base {
     protected void onResume() {
         super.onResume();
 
-        if(!coffeeList.isEmpty())
-            recentList.setText(coffeeList.toString());
-        else
-            recentList.setText(getString(R.string.recentlyViewedListEmptyMessage));
+        coffeeFragment = CoffeeFragment.newInstance(); //get a new Fragment instance
+        getFragmentManager().beginTransaction().add(R.id.fragment_layout, coffeeFragment).commit(); // add it to the current activity
+
+//        if(!coffeeList.isEmpty())
+//            recentList.setText(coffeeList.toString());
+//        else
+//            recentList.setText(getString(R.string.recentlyViewedListEmptyMessage));
     }
 
-    public void setupCoffees(){
-        coffeeList.add(new Coffee("Standard Black", "Some Shop",2.5,1.99,false));
-        coffeeList.add(new Coffee("Regular Joe", "Joe's Place",3.5,2.99,true));
-        coffeeList.add(new Coffee("Espresso", "Ardkeen Stores",4.5,1.49,true));
-    }
+
 }

@@ -30,4 +30,5 @@ public class Coffee implements Serializable
 				+ ", shop =" + shop + ", rating=" + rating + ", price=" + price
 				+ ", fav =" + favourite + "]";
 	}
+
 }
