@@ -191,7 +191,8 @@
                 android:layout_above="@+id/LinearLayout01"
                 android:layout_centerHorizontal="true"
                 android:drawableTop="@drawable/ic_save_todo"
-                android:text="@string/updateCoffeeBtnLbl" />
+                android:text="@string/updateCoffeeBtnLbl"
+                android:onClick="update"/>
         </RelativeLayout>
     </RelativeLayout>
 
