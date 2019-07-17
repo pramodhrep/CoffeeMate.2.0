@@ -25,7 +25,6 @@ public class Edit extends Base {
 		setContentView(R.layout.edit);
 		activityInfo = getIntent().getExtras();
 		aCoffee = getCoffeeObject(activityInfo.getInt("coffeeID"));
-		favouriteImage = (ImageView) findViewById(R.id.favouriteImageView);
 
 		setContentView(R.layout.edit);
 		activityInfo = getIntent().getExtras();
